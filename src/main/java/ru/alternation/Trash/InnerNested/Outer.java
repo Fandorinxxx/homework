@@ -1,28 +1,28 @@
-package ru.alternation.Trash;
+package ru.alternation.Trash.InnerNested;
 
 
-public class InnerNested {
+public class Outer {
 
     private String privatNonStaticStr = "InnerNested";
-    private String privatStaticStr = "InnerNestedStatic";
+    private static String privatStaticStr = "InnerNestedStatic";
 
 
     public static void main(String[] args) {
 
 
         //Inner inner = new InnerNested().new Inner();
-        InnerNested.Inner inner = new InnerNested().new Inner();
+        Outer.Inner inner = new Outer().new Inner();
         inner.a();
 
-        new InnerNested().m();
+        new Outer().m();
 
         //Nested nested = new Nested();
-        InnerNested.Nested nested = new InnerNested.Nested();
+        Outer.Nested nested = new Outer.Nested();
 
         nested.a();
 
-        Outer out = new Outer();
-        out.a();
+        Additional add = new Additional();
+        add.a();
 
     }
 
@@ -49,14 +49,14 @@ public class InnerNested {
         void a(){
             System.out.println("Nested");
             //System.out.println(privatNonStaticStr); // Bad
-            //System.out.println(privatStaticStr);    // Bad
+            //System.out.println(privatStaticStr);    // Ok
         }
         static int i = 7; // Ok (static)
         static void b(){} // Ok (static)
     }
 
 }
-class Outer{
+class Additional{
     void a(){
         System.out.println("Out");
     }
