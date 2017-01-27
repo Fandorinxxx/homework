@@ -8,8 +8,6 @@ public class Outer {
 
 
     public static void main(String[] args) {
-
-
         //Inner inner = new InnerNested().new Inner();
         Outer.Inner inner = new Outer().new Inner();
         inner.a();
@@ -46,6 +44,9 @@ public class Outer {
     // Как статические переменные и методы, вложенный (статический) класс связан с внешним классом.
     // И так же как и статические методы не может напрямую обращаться к полям объекта внешнего класса.
     public static class Nested{
+
+        public interface Interface{} // static
+
         void a(){
             System.out.println("Nested");
             //System.out.println(privatNonStaticStr); // Bad
