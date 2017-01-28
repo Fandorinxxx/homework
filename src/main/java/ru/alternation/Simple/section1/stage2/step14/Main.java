@@ -1,4 +1,4 @@
-package ru.alternation.Simple.section1.stage1.step14;
+package ru.alternation.Simple.section1.stage2.step14;
 
 /**
  Напишите программу, выводящую в консоль It's alive! It's alive!
