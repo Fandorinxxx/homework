@@ -45,9 +45,7 @@ public class Main {
     // Во всех остальных случаях метод должен возвращать false.
     public static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
 
-
-
-        // a b c d   1
+        // a b c d    1
         // 1 1 0 0    a&b & !(c|d)
         // 1 0 1 0    a&c & !(b|d)
         // 1 0 0 1    a&d & !(b|c)
@@ -55,16 +53,14 @@ public class Main {
         // 0 1 0 1    b&d & !(a|c)
         // 0 0 1 1    c&d & !(a|b)
 
-        //
+        return a^c && b^d || a^b && c^d;
 
-
-        return  (a&b && !(c|d)) ||
-                (a&c && !(b|d)) ||
-                (a&d && !(b|c)) ||
-                (b&c && !(a|d)) ||
-                (b&d && !(a|c)) ||
-                (c&d && !(a|b));
-
+//        return  (a&b && !(c|d)) ||
+//                (a&c && !(b|d)) ||
+//                (a&d && !(b|c)) ||
+//                (b&c && !(a|d)) ||
+//                (b&d && !(a|c)) ||
+//                (c&d && !(a|b));
 
     }
 }
