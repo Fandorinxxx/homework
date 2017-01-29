@@ -36,5 +36,35 @@ package ru.alternation.Simple.section2.stage1.step6;
 public class Main {
     public static void main(String[] args) {
 
+        System.out.println(booleanExpression(false, false, false, false));  // false
+        System.out.println(booleanExpression(true,  true,  true,  true) );  // false
+        System.out.println(booleanExpression(false, false, true,  true));   // true
+    }
+
+    // Реализуйте метод, возвращающий true, если среди четырех его аргументов ровно два истинны (любые).
+    // Во всех остальных случаях метод должен возвращать false.
+    public static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
+
+
+
+        // a b c d   1
+        // 1 1 0 0    a&b & !(c|d)
+        // 1 0 1 0    a&c & !(b|d)
+        // 1 0 0 1    a&d & !(b|c)
+        // 0 1 1 0    b&c & !(a|d)
+        // 0 1 0 1    b&d & !(a|c)
+        // 0 0 1 1    c&d & !(a|b)
+
+        //
+
+
+        return  (a&b && !(c|d)) ||
+                (a&c && !(b|d)) ||
+                (a&d && !(b|c)) ||
+                (b&c && !(a|d)) ||
+                (b&d && !(a|c)) ||
+                (c&d && !(a|b));
+
+
     }
 }
