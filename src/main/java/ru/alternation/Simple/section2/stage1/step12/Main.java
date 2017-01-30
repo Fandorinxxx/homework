@@ -16,6 +16,7 @@ package ru.alternation.Simple.section2.stage1.step12;
 
  */
 
+
 public class Main {
     public static void main(String[] args) {
         //System.out.println( 0.1 +0.2 +0.3); // 0.6000000000000001
@@ -26,3 +27,10 @@ public class Main {
     }
 
 }
+
+
+//Классы BigInteger и BigDecimal
+// https://pr0java.blogspot.ru/2015/05/biginteger-bigdecimal_70.html
+
+//Примитивные вещественные типы - знакомство с граблями
+// https://pr0java.blogspot.ru/2015/04/blog-post_15.html
