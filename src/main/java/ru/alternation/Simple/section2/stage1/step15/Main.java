@@ -17,11 +17,26 @@ package ru.alternation.Simple.section2.stage1.step15;
 
  */
 
+// Про побитовые сдвиги
+// https://pr0java.blogspot.ru/2015/04/java-byte-short-int-long.html
+
+// http://ru.stackoverflow.com/questions/281650/Побитовые-операции-о-каких-из-них-полезно-знать-программистам-более-высоких
+// http://www.quizful.net/interview/java/Cz1jySBYuxgy
+// http://ru.stackoverflow.com/questions/491216/Замена-1-бита-в-числе-Задача
+
+// https://ru.wikipedia.org/wiki/Дополнительный_код_(представление_числа)
+
+
 public class Main {
 
     public static void main(String[] args) {
 
     }
+
+    public static int flipFirstBit(int value) {
+        return value ^ 1;
+    }
+
 
     /**
      * Flips one bit of the given <code>value</code>.
@@ -31,7 +46,7 @@ public class Main {
      * @return new value with one bit flipped
      */
     public static int flipBit(int value, int bitIndex) {
-        return ... // put your implementation here
+        return value ^ (1 << --bitIndex);
     }
 
 }

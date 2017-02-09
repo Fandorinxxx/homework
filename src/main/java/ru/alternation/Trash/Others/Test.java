@@ -8,16 +8,39 @@ public class Test {
 
 
 
-//        long i = 100_000_000_000L;
-//        System.out.println(i++);
-//        i = 100_000_000_000L;
-//        System.out.println(--i);
-//
-//        byte b = -128;
-//        System.out.println((byte)(b-1));
 
-//        char c = 64;
-//        System.out.println(c);
+
+
+        int i;
+
+        i=101;
+        System.out.println(Integer.toBinaryString( i));
+        i=127;
+        System.out.println(Integer.toBinaryString( i));
+
+
+        i<<=32;
+        System.out.println(Integer.toBinaryString( i));
+        System.out.println(i);
+
+        i>>=32;
+        System.out.println(Integer.toBinaryString( i));
+        System.out.println(i);
+
+        i>>>=32;
+        System.out.println(Integer.toBinaryString( i));
+        System.out.println(i);
+
+
+
+
+
+
+
+//        byte b = -128;
+//        System.out.println(Integer.toBinaryString( b));
+//        System.out.println((byte)(--b));
+//        System.out.println(Integer.toBinaryString(b));
 
 
 
