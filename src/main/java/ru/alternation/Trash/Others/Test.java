@@ -27,7 +27,7 @@ public class Test {
         System.out.println(Integer.toBinaryString( i));
         System.out.println(i);
 
-        i>>>=32;
+        i>>>=5;
         System.out.println(Integer.toBinaryString( i));
         System.out.println(i);
 
