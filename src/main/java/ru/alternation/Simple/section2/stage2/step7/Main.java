@@ -13,13 +13,15 @@ package ru.alternation.Simple.section2.stage2.step7;
  Sample Output 2:
  y
  */
+
 public class Main {
     public static void main(String[] args) {
-
+        System.out.println(charExpression(32) );
+        System.out.println(charExpression(29) );
     }
 
 
     public static char charExpression(int a) {
-        return '?' - 1;
+        return (char) ('\\' + a);
     }
 }
