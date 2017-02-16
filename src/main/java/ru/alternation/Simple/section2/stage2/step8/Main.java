@@ -36,6 +36,7 @@ public class Main {
     public static boolean isPowerOfTwo(int value) {
 
         return Integer.bitCount(Math.abs(value)) == 1;
+        // return (value != 0) && (((value & value-1) == 0) || ((-1*value & -1*value-1) == 0));
     }
 
     public static void main(String[] args) {
