@@ -28,10 +28,6 @@ package ru.alternation.Simple.section2.stage3.step10;
 
 public class Main {
 
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Checks if given <code>text</code> is a palindrome.
      *
@@ -39,9 +35,13 @@ public class Main {
      * @return <code>true</code> when <code>text</code> is a palindrome, <code>false</code> otherwise
      */
     public static boolean isPalindrome(String text) {
-        return true; // your implementation here
+        return false; // your implementation here
     }
 
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("Madam, I'm Adam!"));
+    }
 
 }
 
