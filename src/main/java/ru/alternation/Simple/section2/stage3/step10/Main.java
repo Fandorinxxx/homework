@@ -26,6 +26,13 @@ package ru.alternation.Simple.section2.stage3.step10;
  true
  */
 
+
+    // http://proglang.su/java/123
+    // https://www.tutorialspoint.com/java/java_string_replaceall
+
+    // !!!
+    // http://www.quizful.net/post/Java-RegExp
+
 public class Main {
 
     /**
@@ -36,8 +43,8 @@ public class Main {
      */
     public static boolean isPalindrome(String text) {
 
-        text = text.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-        return  text.equals(new StringBuilder(text).reverse().toString());
+        text = text.replaceAll("\\W", "");
+        return  text.equalsIgnoreCase(new StringBuilder(text).reverse().toString());
     }
 
 
