@@ -34,11 +34,21 @@ public class Main {
      */
     public static BigInteger factorial(int value) {
 
+        BigInteger bigInteger = new BigInteger("1");
 
-        return new BigInteger("0"); // your implementation here
+        for (int i = 1; i <= value; i++) {
+            bigInteger = bigInteger.multiply(new BigInteger(Integer.toString(i)));
+        }
+
+        return bigInteger;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(factorial(0));
+        System.out.println(factorial(1));
+        System.out.println(factorial(2));
+        System.out.println(factorial(3));
+        System.out.println(factorial(4));
+        System.out.println(factorial(5));
     }
 }
