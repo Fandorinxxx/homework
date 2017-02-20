@@ -34,13 +34,14 @@ public class Main {
      */
     public static BigInteger factorial(int value) {
 
-        BigInteger bigInteger = new BigInteger("1");
+//        BigInteger bigInteger =  BigInteger.ONE;
+//        for (int i = 1; i <= value; i++) {
+//            bigInteger = bigInteger.multiply(new BigInteger(Integer.toString(i)));
+//        }
+//        return bigInteger;
 
-        for (int i = 1; i <= value; i++) {
-            bigInteger = bigInteger.multiply(new BigInteger(Integer.toString(i)));
-        }
 
-        return bigInteger;
+        return value == 0 ? BigInteger.ONE : new BigInteger(Integer.toString(value)).multiply(factorial(--value));
     }
 
     public static void main(String[] args) {
