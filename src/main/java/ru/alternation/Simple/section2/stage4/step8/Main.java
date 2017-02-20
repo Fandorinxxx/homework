@@ -24,6 +24,8 @@ import java.math.BigInteger;
 
  */
 
+// http://rabotaet.livejournal.com/5006.html
+
 public class Main {
 
     /**
@@ -41,15 +43,12 @@ public class Main {
 //        return bigInteger;
 
 
-        return value == 0 ? BigInteger.ONE : new BigInteger(Integer.toString(value)).multiply(factorial(--value));
+        return value == 0 ? BigInteger.ONE :  BigInteger.valueOf(value).multiply(factorial(--value));
     }
 
     public static void main(String[] args) {
-        System.out.println(factorial(0));
-        System.out.println(factorial(1));
-        System.out.println(factorial(2));
-        System.out.println(factorial(3));
-        System.out.println(factorial(4));
-        System.out.println(factorial(5));
+        for (int i = 0; i < 10; i++) {
+            System.out.println(factorial(i));
+        }
     }
 }
