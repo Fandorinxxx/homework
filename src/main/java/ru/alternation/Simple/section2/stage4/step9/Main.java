@@ -18,7 +18,11 @@ import java.util.Arrays;
  Если на вход подаются массивы {0, 2, 2} и {1, 3}, то на выходе должен получиться массив {0, 1, 2, 2, 3}
 
  */
+
+// http://developer.alexanderklimov.ru/android/java/array.php#concat
+
 public class Main {
+
 
     /**
      * Merges two given sorted arrays into one
@@ -35,19 +39,19 @@ public class Main {
             return a1;
 
         int totalLength = a1.length + a2.length;
-        int[] m = new int[totalLength];
+        int[] result = new int[totalLength];
         for (int i = 0, j = 0, k = 0; k < totalLength; k++) {
 
             if (i < a1.length && ( j == a2.length || a1[i] <= a2[j])) {
-                m[k] = a1[i];
+                result[k] = a1[i];
                 i++;
             }
             else {
-                m[k] = a2[j];
+                result[k] = a2[j];
                 j++;
             }
         }
-        return m;
+        return result;
     }
 
     public static void main(String[] args) {
@@ -61,4 +65,39 @@ public class Main {
         System.out.println(Arrays.toString(mergeArrays(new int[]{1, 2}, new int[] {1})));
 
     }
+
+    public static int[] concatArrays(int[] a1, int[] a2) {
+        int[] result = new int[a1.length + a2.length];
+        System.arraycopy(a1, 0, result , 0, a1.length);
+        System.arraycopy(a2, 0, result , a1.length, a2.length);
+        Arrays.sort(result);
+        return  result;
+    }
+    public static int[] mergeArraysNew(int[] a1, int[] a2) {
+
+        int[] result = new int[a1.length + a2.length];
+        int i = 0, j = 0;
+
+        while (i < a1.length && j < a2.length){
+            result[i+j] = (a1[i] <= a2[j]) ? a1[i++] : a2[j++];
+        }
+        while (i < a1.length)
+            result[i+j] = a1[i++];
+        while (j < a2.length)
+            result[i+j] = a2[j++];
+
+        return result;
+    }
+
+    public static int[] mergeArraysAnother(int[] a1, int[] a2) {
+        int n = a1.length, m = a2.length;
+        int i = 0, j = 0;
+        int[] array = new int[n + m];
+
+        while (i < n || j < m)
+            array[i + j] = (i < n && (j == m || a1[i] < a2[j])) ? a1[i++] : a2[j++];
+
+        return array;
+    }
+
 }
