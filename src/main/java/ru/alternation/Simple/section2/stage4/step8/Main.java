@@ -24,7 +24,9 @@ import java.math.BigInteger;
 
  */
 
-// http://rabotaet.livejournal.com/5006.html
+    // https://pr0java.blogspot.ru/2015/05/biginteger-bigdecimal_70.html
+    // http://rabotaet.livejournal.com/5006.html
+    // https://habrahabr.ru/post/113128/
 
 public class Main {
 
