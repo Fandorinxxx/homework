@@ -19,7 +19,10 @@ import java.util.Arrays;
 
  */
 
-// http://developer.alexanderklimov.ru/android/java/array.php#concat
+    // http://developer.alexanderklimov.ru/android/java/array.php#concat
+
+    // Тесты
+    // https://github.com/meanmail/java_base/blob/master/src/meanmail/stepic/java/tests/MergeArrays.java
 
 public class Main {
 
