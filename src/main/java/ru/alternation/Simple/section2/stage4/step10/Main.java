@@ -78,7 +78,9 @@ public class Main {
             for (String text : textLines){
                 i++;
                 if (text.startsWith(role + ":")){
-                    result.append(i).append(") ").append(text, role.length()+2, text.length()).append("\n"); // append(text, role.length()+2, text.length()) == append(text.substring(role.length()+2))
+                    result.append(i).append(") ")
+                            .append(text, role.length()+2, text.length()) // .append(text.substring(role.length()+2))
+                            .append("\n");
                 }
             }
             result.append("\n");
