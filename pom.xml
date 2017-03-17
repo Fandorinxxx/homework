@@ -6,6 +6,7 @@
 
     <groupId>ru.alternation</groupId>
     <artifactId>StepikJava</artifactId>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -81,4 +82,13 @@
     </build>
 
 
+    <!-- Interesting plugins:      -->
+
+    <!-- Apache Maven Shade Plugin -->
+    <!-- https://maven.apache.org/plugins/maven-shade-plugin/index.html -->
+
+    <!--    -->
+    <!--    -->
+
 </project>
+
