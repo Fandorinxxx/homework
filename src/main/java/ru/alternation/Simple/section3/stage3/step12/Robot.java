@@ -189,7 +189,6 @@ public class Robot {
         }
     }
 
-
     // it uses smart turn
     private static void moveRobotToX(Robot robot, int toX){
         if (robot.getX() < toX){
@@ -202,6 +201,7 @@ public class Robot {
             robot.stepForward();
         }
     }
+
     // it does not use smart turn
     private static void moveRobotToY(Robot robot, int toY){
         if (robot.getY() < toY){
@@ -224,7 +224,6 @@ public class Robot {
     }
 
 //========= the answer =============================^
-
 
 
     public static void main(String[] args) {
