@@ -1,6 +1,8 @@
 package ru.alternation.Simple.section3.stage4.step9;
 
 
+import java.util.Objects;
+
 /**
  Дан класс ComplexNumber. Переопределите в нем методы equals() и hashCode() так,
  чтобы equals() сравнивал экземпляры ComplexNumber по содержимому полей re и im,
@@ -46,8 +48,73 @@ public final class ComplexNumber {
 
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o instanceof ComplexNumber){
+            ComplexNumber other = (ComplexNumber)o;
+            return other.re == this.re && other.im == this.im;
+        }
+        return false;
+    }
+
+   @Override
+   public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = result*PRIME + Double.hashCode(re);
+        result = result*PRIME + Double.hashCode(im);
+        return result;
+   }
+
+
+ //==== IDEA Alt+Insert =====================================
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        ComplexNumber that = (ComplexNumber) o;
+//
+//        if (Double.compare(that.re, re) != 0) return false;
+//        return Double.compare(that.im, im) == 0;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result;
+//        long temp;
+//        temp = Double.doubleToLongBits(re);
+//        result = (int) (temp ^ (temp >>> 32));
+//        temp = Double.doubleToLongBits(im);
+//        result = 31 * result + (int) (temp ^ (temp >>> 32));
+//        return result;
+//    }
+
+//=== IDEA Alt+Insert Java 7+ =============================
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        ComplexNumber that = (ComplexNumber) o;
+//        return Double.compare(that.re, re) == 0 &&
+//                Double.compare(that.im, im) == 0;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(re, im);
+//    }
+
     public static  void main(String args[]) {
 
+        ComplexNumber a = new ComplexNumber(1, 1);
+        ComplexNumber b = new ComplexNumber(1, 1);
+        System.out.println(a.equals(b));
+        System.out.println(a.hashCode() == b.hashCode());
     }
 
 
