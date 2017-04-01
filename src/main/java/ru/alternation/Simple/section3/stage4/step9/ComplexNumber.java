@@ -27,6 +27,12 @@ import java.util.Objects;
  то среда разработки помочь не сможет.
  */
 
+// Вопросы и ответы на собеседовании по теме Java Collection Framework. Часть 2.
+// http://www.parshinpn.pro/content/voprosy-i-otvety-na-sobesedovanii-po-teme-java-collection-framework-chast-2
+
+//Пишите компараторы правильно
+//https://habrahabr.ru/post/247015/
+
 
 public final class ComplexNumber {
 
@@ -52,12 +58,20 @@ public final class ComplexNumber {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (o instanceof ComplexNumber){
-            ComplexNumber other = (ComplexNumber)o;
-            return other.re == this.re && other.im == this.im;
-        }
-        return false;
+//        if (o instanceof ComplexNumber){  // лучше использовать  getClass() == o.getClass() + проверка на null
+//            ComplexNumber other = (ComplexNumber)o;
+//            return other.re == this.re && other.im == this.im; // Double.compare() // https://habrahabr.ru/post/247015/
+//        }
+//        return false;
+
+        if (o == null || this.getClass() != o.getClass())
+            return false;
+        ComplexNumber obj = (ComplexNumber)o;
+
+        return Double.compare(obj.im, this.im) == 0
+                && Double.compare(obj.re, this.re) == 0;
     }
+
 
    @Override
    public int hashCode() {
@@ -106,7 +120,7 @@ public final class ComplexNumber {
 //
 //    @Override
 //    public int hashCode() {
-//        return Objects.hash(re, im);
+//        return Objects.hash(re, im); // Arrays.hashCode(re, im);
 //    }
 
     public static  void main(String args[]) {

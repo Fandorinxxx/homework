@@ -1,4 +1,4 @@
-package ru.alternation.Trash.Others.Trash;
+package ru.alternation.Trash.Others.Trash.Test01;
 
 
 

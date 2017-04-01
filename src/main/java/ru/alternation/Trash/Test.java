@@ -3,11 +3,18 @@ package ru.alternation.Trash;
 
 
 
+public class Test{
 
-public class Test {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
+
+
+
+
+
 
 
     }
+
+
 }
