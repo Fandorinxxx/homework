@@ -6,7 +6,7 @@ import java.util.function.DoubleUnaryOperator;
  *
  * Реализуйте метод, выполняющий численное интегрирование заданной функции на заданном интервале
  * по формуле левых прямоугольников.
- * https://ru.wikipedia.org/wiki/Метод_прямоугольников
+ https://ru.wikipedia.org/wiki/Метод_прямоугольников
  *
  * Функция задана объектом, реализующим интерфейс java.util.function.DoubleUnaryOperator.
  * Его метод applyAsDouble() принимает значение аргумента и возвращает значение функции в заданной точке.
@@ -36,16 +36,61 @@ import java.util.function.DoubleUnaryOperator;
 public class Main {
 
     public static double integrate(DoubleUnaryOperator f, double a, double b) {
-        return f.applyAsDouble(a);
+
+        double step = 1e-6;
+        double result = 0;
+
+        for (double i = a; i < b; i+=step) {
+            result += f.applyAsDouble(i) * step;
+        }
+
+        return result;
+
+// пишут, так лучше. ибо может накопиться большая ошибка.
+//        long i = 0;
+//        for (double x = a; x < b; x = a + step * i++) {
+//            result += h * f.applyAsDouble(x);
+//        }
     }
+
+
+    public static double integrateWithDynamicStep(DoubleUnaryOperator f, double a, double b) {
+
+        double step = 1.0; // можно, конечно, и только с этой переменной (без result, previousResult, difference)
+        double result;
+        double previousResult;
+        double difference;
+
+        do{
+            previousResult = integrateWithStep(f, a, b, step);
+            result = integrateWithStep(f, a, b, step/=2);
+
+            difference = Math.abs(result - previousResult);
+        } while (difference > 1e-5);
+
+        return result;
+    }
+    private static double integrateWithStep(DoubleUnaryOperator f, double a, double b, double step)
+    {
+        double result = 0.0;
+
+        for (double i = a; i < b; i+=step) {
+            result += f.applyAsDouble(i) * step;
+        }
+        return result;
+    }
+
 
 
 
     public static void main(String[] args) {
 
+        System.out.println(integrate(x -> 1, 0, 10));
+        //System.out.println(integrateWithDynamicStep(x -> 1, 0, 10));
+        //System.out.println(integrateWithDynamicStep(Math::sin, 0, 1));
 
+        integrate(x ->Math.cos(x), 0, 1);
+        integrate(Math::sin, 0, 10);
 
     }
-
-
 }
