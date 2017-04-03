@@ -1,11 +1,15 @@
 package ru.alternation.Simple.section3.stage5.step7;
 
 import java.util.function.DoubleUnaryOperator;
+import static java.lang.Math.sin;
+import static java.lang.Math.cos;
 
 /**
  *
  * Реализуйте метод, выполняющий численное интегрирование заданной функции на заданном интервале
  * по формуле левых прямоугольников.
+ * <a href="ru.wikipedia.org/wiki/Метод_прямоугольников">Метод_прямоугольников</a>
+ *
  https://ru.wikipedia.org/wiki/Метод_прямоугольников
  *
  * Функция задана объектом, реализующим интерфейс java.util.function.DoubleUnaryOperator.
@@ -44,13 +48,12 @@ public class Main {
             result += f.applyAsDouble(i) * step;
         }
 
-        return result;
-
 // пишут, так лучше. ибо может накопиться большая ошибка.
 //        long i = 0;
 //        for (double x = a; x < b; x = a + step * i++) {
-//            result += h * f.applyAsDouble(x);
+//            result += step * f.applyAsDouble(x);
 //        }
+        return result;
     }
 
 
@@ -86,6 +89,21 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println(integrate(x -> 1, 0, 10));
+
+//        System.out.println(integrate(new DoubleUnaryOperator() {
+//            @Override
+//            public double applyAsDouble(double operand) {
+//                return 1;
+//            }
+//        }, 0, 10));
+
+        DoubleUnaryOperator func1 = x -> x*2;
+        System.out.println(integrate(func1, 0, 10));
+        System.out.println(integrate(func1.andThen(x -> 2), 0, 10));
+        //func1.andThen(x -> 2).applyAsDouble(3.5);
+
+
+        System.out.println(integrate(x -> sin(x)*sin(x) + cos(x)*cos(x), -1, 10));
         //System.out.println(integrateWithDynamicStep(x -> 1, 0, 10));
         //System.out.println(integrateWithDynamicStep(Math::sin, 0, 1));
 
@@ -93,4 +111,5 @@ public class Main {
         integrate(Math::sin, 0, 10);
 
     }
+
 }
