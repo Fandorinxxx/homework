@@ -1,5 +1,12 @@
 package ru.alternation.Simple.section4.stage3.step8;
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Formatter;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.XMLFormatter;
+
 /**
  В этой задаче вам нужно реализовать метод, настраивающий параметры логирования.
  Конфигурирование в коде позволяет выполнить более тонкую и хитрую настройку, чем при помощи properties-файла.
@@ -21,6 +28,7 @@ package ru.alternation.Simple.section4.stage3.step8;
  1. Level есть не только у Logger, но и у Handler.
  2. Передача сообщения на обработку родительскому Handler'у регулируется свойством useParentHandlers.
 
+
 ________________________________________________________________________________________________________________________
  https://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html
 
@@ -39,10 +47,30 @@ ________________________________________________________________________________
 
 public class Main {
     private static void configureLogging() {
-        // your implementation here
+        Logger loggerA = Logger.getLogger("org.stepic.java.logging.ClassA");
+        loggerA.setLevel(Level.ALL);
+
+        Logger loggerB = Logger.getLogger("org.stepic.java.logging.ClassB");
+        loggerB.setLevel(Level.WARNING);
+
+        Logger loggerOSJ = Logger.getLogger("org.stepic.java");
+        loggerOSJ.setLevel(Level.ALL);
+
+
+        Handler handler = new ConsoleHandler();
+        handler.setLevel(Level.ALL);
+
+        Formatter formatter = new XMLFormatter();
+        handler.setFormatter(formatter);
+
+        loggerOSJ.addHandler(handler);
+        loggerOSJ.setUseParentHandlers(false);
     }
 
-    public static void main(String[] args) {
 
+    //__________________________________________________________________________________________________________________
+
+    public static void main(String[] args) {
+        configureLogging();
     }
 }
