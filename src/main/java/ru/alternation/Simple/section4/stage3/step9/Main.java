@@ -1,5 +1,8 @@
 package ru.alternation.Simple.section4.stage3.step9;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
 Это задачка совмещает тренировку по материалу предыдущих двух модулей – необходимо разобраться и написать
 объект-ориентированный код и при этом коснуться свежих тем – исключений и логирования.
@@ -52,8 +55,105 @@ public class Main {
 /* implement UntrustworthyMailWorker, Spy, Inspector, Thief, StolenPackageException, IllegalPackageException
    as public static classes here*/
 
+    public static class UntrustworthyMailWorker implements MailService {
 
+        private MailService[] mailServices;
+        private RealMailService realMailService = new RealMailService();
 
+        public UntrustworthyMailWorker(MailService[] mailServices) {
+            this.mailServices = mailServices;
+        }
+
+        @Override
+        public Sendable processMail(Sendable mail) {
+            for (MailService m : mailServices) {
+                mail = m.processMail(mail);
+            }
+            return getRealMailService().processMail(mail);
+        }
+
+        public RealMailService getRealMailService() {
+            return realMailService;
+        }
+    }
+
+    public static class Spy implements MailService {
+
+        private Logger logger;
+
+        public Spy(Logger logger) {
+            this.logger = logger;
+        }
+
+        @Override
+        public Sendable processMail(Sendable mail) {
+
+            if (mail instanceof MailMessage) {
+                if (AUSTIN_POWERS.equals(mail.getFrom()) || AUSTIN_POWERS.equals(mail.getTo())) {
+                    logger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"",
+                            new String[]{
+                                    mail.getFrom(),
+                                    mail.getTo(),
+                                    ((MailMessage) mail).getMessage()
+                            }); // лучше так конкатенировать строки в логе
+                } else {
+                    logger.info("Usual correspondence: from " + mail.getFrom() + " to " + mail.getTo());
+                }
+            }
+
+            return mail;
+        }
+    }
+
+    public static class Thief implements MailService{
+        private int minPrice;
+        private int totalStolen;
+
+        public Thief(int minPrice) {
+            this.minPrice = minPrice;
+        }
+
+        @Override
+        public Sendable processMail(Sendable mail) {
+            if (mail instanceof MailPackage){
+                Package aPackage = ((MailPackage) mail).getContent();
+                if (aPackage.getPrice() >= minPrice){
+                    totalStolen+=aPackage.getPrice();
+                    return new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of " + aPackage.getContent(), 0));
+                }
+            }
+            return mail;
+        }
+
+        public int getStolenValue(){
+            return totalStolen;
+        }
+
+    }
+
+    public static class Inspector implements MailService {
+
+        @Override
+        public Sendable processMail(Sendable mail) {
+
+            if (mail instanceof MailPackage){
+                Package aPackage = ((MailPackage) mail).getContent();
+                if (aPackage.getContent().contains(WEAPONS) || aPackage.getContent().contains(BANNED_SUBSTANCE)){
+                    throw new IllegalPackageException();
+                } else if (aPackage.getContent().contains("stones")){
+                    throw new StolenPackageException();
+                }
+            }
+            return mail;
+        }
+    }
+
+    public static class IllegalPackageException extends RuntimeException {
+    }
+    public static class StolenPackageException extends RuntimeException {
+    }
+
+// DONE ================================================================================================================
 
 //______________________________________________________________________________________________________________________
 
