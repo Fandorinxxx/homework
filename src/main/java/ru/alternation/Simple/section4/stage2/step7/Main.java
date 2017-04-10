@@ -107,7 +107,8 @@ public class Main {
                     if (connection != null) {
                         connection.close();
                     }
-                } catch (RobotConnectionException e){
+                } catch (RobotConnectionException e){ // можно просто поймать и ничего не делать,
+                    // но оно (исключение из файнали) тогда просто пропадет (но зато не перебьет исключение из внешнего try)
                     if (i == repeatCount - 1) {
                         if (mainException != null) {
                             mainException.addSuppressed(e);

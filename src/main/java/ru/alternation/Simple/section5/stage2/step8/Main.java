@@ -32,10 +32,9 @@ public class Main {
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
 
         int data = 0;
-        int read = inputStream.read();
-        while ( read != -1){
+        int read;
+        while ( (read = inputStream.read()) != -1){
             data = Integer.rotateLeft(data, 1)^read;
-            read = inputStream.read();
         }
         return data;
     }
