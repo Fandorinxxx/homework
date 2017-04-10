@@ -30,6 +30,8 @@
 
         <plugins>
 
+            <!-- Плагин для автоматического анализа кода на предмет наличия "нехорошего кода". -->
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/ -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -41,7 +43,9 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>check</goal></goals>
+                        <goals>
+                            <goal>check</goal><!--  -->
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
