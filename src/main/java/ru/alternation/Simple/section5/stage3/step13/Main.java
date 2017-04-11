@@ -37,7 +37,8 @@ public class Main {
         sumOfDouble();
     }
 
-    private static void sumOfDouble(){
+    // для прекращения ввода нажать CTRL + D
+    public static void sumOfDouble(){
         Scanner scanner = new Scanner(System.in).useLocale(Locale.forLanguageTag("en"));
         double data = 0.0;
         while (scanner.hasNext()){
@@ -47,6 +48,6 @@ public class Main {
                 scanner.next();
             }
         }
-        System.out.printf(Locale.ENGLISH,"%.6f\n", data);
+        System.out.printf(Locale.ENGLISH, "%.6f\n", data);
     }
 }
