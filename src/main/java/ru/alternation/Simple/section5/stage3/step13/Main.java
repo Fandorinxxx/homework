@@ -1,5 +1,9 @@
 package ru.alternation.Simple.section5.stage3.step13;
 
+
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  Напишите программу, читающую текст из System.in и выводящую в System.out сумму всех встреченных в тексте
  вещественных чисел с точностью до шестого знака после запятой. Числом считается последовательность символов,
@@ -25,9 +29,24 @@ package ru.alternation.Simple.section5.stage3.step13;
  -981.889000
 
 
+ https://stepik.org/media/attachments/lesson/12782/module5.pdf
  */
+
 public class Main {
     public static void main(String[] args) {
+        sumOfDouble();
+    }
 
+    private static void sumOfDouble(){
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.forLanguageTag("en"));
+        double data = 0.0;
+        while (scanner.hasNext()){
+            if (scanner.hasNextDouble()) {
+                data += scanner.nextDouble();
+            } else {
+                scanner.next();
+            }
+        }
+        System.out.printf(Locale.ENGLISH,"%.6f\n", data);
     }
 }
