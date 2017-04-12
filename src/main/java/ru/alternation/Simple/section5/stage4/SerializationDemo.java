@@ -10,6 +10,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 
+
+/**
+ * http://info.javarush.ru/translation/2013/09/03/Как-работает-сериализация-в-Java.html
+ * https://javateaching.blogspot.ru/2011/12/serialization-static-field.html
+ * http://info.javarush.ru/javarush_articles/2015/12/11/Сериализация-как-она-есть.html
+ * https://ru.stackoverflow.com/questions/578210/Сериализация-объектов-класса
+ */
+
 public class SerializationDemo {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {

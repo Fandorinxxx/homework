@@ -1,5 +1,9 @@
 package ru.alternation.Simple.section5.stage4.step8;
 
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -26,8 +30,23 @@ import java.util.Objects;
  */
 public class Main {
     public static Animal[] deserializeAnimalArray(byte[] data) {
-        // your implementation here
-        return null;
+
+        Animal[] animals;
+        try (ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data))) { // IOException
+            int count = ois.readInt(); // IOException
+            animals = new Animal[count];
+            for (int i = 0; i < count; i++) {
+                Object o = ois.readObject(); // IOException
+                if (o instanceof Animal){
+                    animals[i] = (Animal)o; // ClassNotFoundException
+                } else {
+                    throw new IllegalArgumentException();
+                }
+            }
+        } catch (IOException | ClassNotFoundException e){
+            throw new IllegalArgumentException();
+        }
+        return animals;
     }
 
     public static void main(String[] args) {

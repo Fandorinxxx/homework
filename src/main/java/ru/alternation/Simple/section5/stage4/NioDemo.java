@@ -13,6 +13,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * /todo
+ * https://habrahabr.ru/post/235585/
+ * https://examples.javacodegeeks.com/category/core-java/nio/
+ * http://tutorials.jenkov.com/java-nio/index.html
+ */
 
 public class NioDemo {
 
