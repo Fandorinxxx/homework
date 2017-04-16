@@ -39,6 +39,11 @@ import java.util.Objects;
  Any reason to prefer getClass() over instanceof when generating .equals()?
  https://stackoverflow.com/questions/596462/any-reason-to-prefer-getclass-over-instanceof-when-generating-equals
 
+
+ Пример использования функционального интерфейса
+ https://data-structure-learning.blogspot.ru/2015/07/java-lambda-biconsumer-functional.html
+
+
  Презентация
  https://stepik.org/media/attachments/lesson/12775/module6.pdf
  */
@@ -79,7 +84,7 @@ class Pair <T, S> {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (o == null || o.getClass() != getClass())
+        if (o == null || o.getClass() != getClass()) // if (!(obj instanceof MyClass))
             return false;
 
         Pair<?,?> pair = (Pair<?,?>) o;
@@ -89,6 +94,7 @@ class Pair <T, S> {
 //        if (first != null ? !first.equals(pair.first) : pair.first != null) return false;
 //        return second != null ? second.equals(pair.second) : pair.second == null;
     }
+
 
     @Override
     public int hashCode() {
