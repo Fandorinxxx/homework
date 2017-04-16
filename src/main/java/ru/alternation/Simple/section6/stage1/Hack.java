@@ -17,6 +17,7 @@ import java.util.Optional;
 //        public void ifPresent(Consumer<? super T> consumer) {
 //            if (value != null)
 //                consumer.accept(value); // у value тип T // accept - вызывающих код
+                                          // т.е. передаю методу accept переменную типа T, и, значит, этот метод должен принимать либо T, либо его супертип.
 //        }
 
 // Работа с дочерними классами должна быть абсолютно незаметна для вызывающего кода - согласно принципу Лисков (Вроде, верно перефразировал.).
@@ -28,6 +29,11 @@ import java.util.Optional;
 //            return value != null ? value : other.get();
 //        }
 
+/*
+Optional без параметризации и Optional<Object> дает Optional, у которого методы принимают и возвращают Object.
+Optional<?> дает Optional, из которого (например, методом get()) можно получить Object. А передать в него (например, в метод orElse()) ничего нельзя. Компилятор не разрешит.
+ */
+
 
 /**
  * Как сделать проверяемое исключение непроверяемым
@@ -37,6 +43,10 @@ public class Hack {
     public static void main(String[] args) {
         throwAsUnchecked(new IOException());
         //genericThrow(new IOException()); // можно и просто, так
+
+
+        Number[] numbers = new Integer[3];
+        numbers[2]=new BigDecimal("");
     }
 
     private static void throwAsUnchecked(Exception e) {

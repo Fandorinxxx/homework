@@ -1,6 +1,6 @@
 package ru.alternation.Simple.section6.stage1.step12;
 
-
+import java.util.Objects;
 
 /**
  Реализуйте generic-класс Pair, похожий на Optional, но содержащий пару элементов разных типов и не запрещающий
@@ -36,23 +36,65 @@ package ru.alternation.Simple.section6.stage1.step12;
 
  https://examples.javacodegeeks.com/core-java/util/optional/java-8-optional-example/
 
+ Any reason to prefer getClass() over instanceof when generating .equals()?
+ https://stackoverflow.com/questions/596462/any-reason-to-prefer-getclass-over-instanceof-when-generating-equals
+
  Презентация
  https://stepik.org/media/attachments/lesson/12775/module6.pdf
  */
 
-
-public class Main {
+public class Main{
     public static void main(String[] args) {
-
         Pair<Integer, String> pair = Pair.of(1, "hello");
         Integer i = pair.getFirst(); // 1
         String s = pair.getSecond(); // "hello"
 
         Pair<Integer, String> pair2 = Pair.of(1, "hello");
-        boolean mustBeTrue = pair.equals(pair2); // true!
-        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
+        System.out.println(pair.equals(pair2));// true!
+        System.out.println(pair.hashCode() == pair2.hashCode());  // true!
+        //System.out.println(null == null); // true
+    }
+}
 
+class Pair <T, S> {
 
+    private T first;
+    private S second;
 
+    private Pair(T first, S second) {
+        this.first = first;
+        this.second = second;
+    }
+    public T getFirst(){
+        return first;
+    }
+    public S getSecond(){
+        return second;
+    }
+    public static <T,S> Pair<T,S> of(T first, S second){
+        return new Pair<>(first, second);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || o.getClass() != getClass())
+            return false;
+
+        Pair<?,?> pair = (Pair<?,?>) o;
+
+        return Objects.equals(first, pair.first) && Objects.equals(second, pair.second);
+
+//        if (first != null ? !first.equals(pair.first) : pair.first != null) return false;
+//        return second != null ? second.equals(pair.second) : pair.second == null;
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = first != null ? first.hashCode() : 0;
+        result = result*PRIME + (second != null ? second.hashCode() : 0);
+        return result;
     }
 }
