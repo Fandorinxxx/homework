@@ -1,5 +1,6 @@
 package ru.alternation.Simple.section6.stage2.step14;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,8 +31,45 @@ public class Main  {
         return s;
     }
 
+    public static <T> Set<T> symmetricDifference2(Set<? extends T> set1, Set<? extends T> set2) {
+        Set<T> result = new HashSet<>(set1);
+        set2.forEach( e -> {
+            if (result.contains(e)) {
+                result.remove(e);
+            } else {
+                result.add(e);
+            }
+        });
+        return result;
+    }
 
-    public static void main(String[] args) {
+    public static <T> Set<T> symmetricDifference3(Set<? extends T> set1, Set<? extends T> set2) {
+        Set<T> all = new HashSet<>(set1);
+        all.addAll(set2);
+
+        Set<T> result = new HashSet<>();
+        all.forEach( e -> {
+            if (set1.contains(e) ^ set2.contains(e)) {
+                result.add(e);
+            }
+        });
+        return result;
+    }
+
+    public static <T> Set<T> symmetricDifference4(Set<? extends T> set1, Set<? extends T> set2) {
+        Set<T> all = new HashSet<>(set1);
+        //all.addAll(set2);
+        Collections.addAll(all, (T[]) set2.toArray());
+
+        Set<T> retained = new HashSet<>(set1);
+        retained.retainAll(set2);
+
+        all.removeAll(retained);
+        return all;
+    }
+
+
+        public static void main(String[] args) {
 
         Set<Integer> s1 = new HashSet<>();
         s1.add(1);
