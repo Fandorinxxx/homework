@@ -22,13 +22,13 @@ public class Main  {
 
         Set<T> s1 = new HashSet<>(set1);
         Set<T> s2 = new HashSet<>(set2);
-        Set<T> s = new HashSet<>();
+        Set<T> result = new HashSet<>(); // можно, конечно, и без вспомогательной переменной
 
         s1.removeAll(set2);
-        s.addAll(s1);
+        result.addAll(s1);
         s2.removeAll(set1);
-        s.addAll(s2);
-        return s;
+        result.addAll(s2);
+        return result;
     }
 
     public static <T> Set<T> symmetricDifference2(Set<? extends T> set1, Set<? extends T> set2) {
@@ -49,7 +49,7 @@ public class Main  {
 
         Set<T> result = new HashSet<>();
         all.forEach( e -> {
-            if (set1.contains(e) ^ set2.contains(e)) {
+            if (set1.contains(e) ^ set2.contains(e)) { // исключающее или
                 result.add(e);
             }
         });
