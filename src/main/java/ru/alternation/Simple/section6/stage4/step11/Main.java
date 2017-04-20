@@ -21,29 +21,8 @@ import java.util.stream.IntStream;
  */
 
 public class Main {
-    static int pow10(int power){
-        int i = 10;
-        for (int j = 0; j < power; j++) {
-            i = i * 10;
-        }
-        return i;
-    }
-    static int mid(int value){
-        int result = 0;
-        for (int i = 0; i < 3; i++) {
-
-            if(value/10 != 0){
-                int step1 = value % pow10(i+1);
-                int step2 = pow10(i);
-                result += step1/step2 * step2;
-            }
-        }
-        return result/10;
-    }
-
-
     public static IntStream pseudoRandomStream(int seed) {
-        return IntStream.iterate(seed, x->mid(x*x));
+        return IntStream.iterate(seed, n -> (n * n / 10) % 1000);
     }
 
 
@@ -51,3 +30,24 @@ public class Main {
         pseudoRandomStream(13).limit(15).forEach(System.out::println);
     }
 }
+
+// Плохая реализация mid()
+//    static int mid(int value, int length, int offer){
+//        int result = 0;
+//        if(value/pow10(offer) != 0) {
+//            for (int i = offer; i < length + offer; i++) {
+//                int step1 = value % pow10(i + 1);
+//                int step2 = pow10(i);
+//                result += step1 / step2 * step2;
+//            }
+//        }
+//        return result/pow10(offer);
+//    }
+//    static int pow10(int power){
+//        int i = 1;
+//        for (int j = 0; j < power; j++) {
+//            i = i * 10;
+//        }
+//        return i;
+//    }
+//}
