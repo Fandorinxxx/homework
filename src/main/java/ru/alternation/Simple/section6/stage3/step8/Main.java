@@ -25,7 +25,14 @@ public class Main {
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
-        return null; // your implementation here
+
+        return (T t) -> {
+            if (condition.test(t)){
+                return ifTrue.apply(t);
+            } else {
+                return ifFalse.apply(t);
+            }
+        };
 
     }
 
