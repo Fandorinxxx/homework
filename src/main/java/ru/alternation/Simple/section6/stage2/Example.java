@@ -23,7 +23,7 @@ public class Example {
         //collection.addAll(Arrays.asList(object));
         collection.remove(object);
         //collection.add(object);
-        collection.add(null);
+        collection.add(null); // можно
         collection.clear();
         collection.contains(object);
         /*
