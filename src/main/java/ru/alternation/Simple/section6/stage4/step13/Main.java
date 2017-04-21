@@ -58,33 +58,32 @@ import java.util.stream.Stream;
  mi
  _______________________________________________________________________________________________________________________
 
- https://ru.wikipedia.org/wiki/Свёртка_списка
- https://habrahabr.ru/post/255659/
- http://info.javarush.ru/translation/2014/10/09/Особенности-Java-8-максимальное-руководство-часть-2-.html
- https://habrahabr.ru/post/262139/
  https://habrahabr.ru/company/luxoft/blog/270383/
-
+ http://info.javarush.ru/translation/2014/10/09/Особенности-Java-8-максимальное-руководство-часть-2-.html
  http://www.oracle.com/technetwork/articles/java/architect-streams-pt2-2227132.html
  https://www.mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/
+ https://ru.wikipedia.org/wiki/Свёртка_списка
+ https://habrahabr.ru/post/255659/
+ https://habrahabr.ru/post/262139/
+
 
  TAGS: РЕГУЛЯРНЫЕ ВЫРАЖЕНИЯ \p{Punct}
-
  https://stackoverflow.com/questions/4304928/unicode-equivalents-for-w-and-b-in-java-regular-expressions/4307261#4307261
  http://www.darkraha.com/rus/dic/regexp.php
 
  */
 public class Main {
+    private static ByteArrayInputStream inputStream = new ByteArrayInputStream(("Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+            "Sed sodales consectetur purus at faucibus. Donec mi quam, tempor vel ipsum non, faucibus suscipit massa. Morbi lacinia velit " +
+            "blandit tincidunt efficitur. Vestibulum eget metus imperdiet sapien laoreet faucibus. Nunc eget vehicula mauris, ac auctor lorem. " +
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio nec mi tempor dignissim.\n")
+            .getBytes(StandardCharsets.UTF_8));
+    private static ByteArrayInputStream inputStream2 = new ByteArrayInputStream("Мама мыла-мыла-мыла раму!".getBytes(StandardCharsets.UTF_8));
+
 
     public static void main(String[] args) {
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(("Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                "Sed sodales consectetur purus at faucibus. Donec mi quam, tempor vel ipsum non, faucibus suscipit massa. Morbi lacinia velit " +
-                "blandit tincidunt efficitur. Vestibulum eget metus imperdiet sapien laoreet faucibus. Nunc eget vehicula mauris, ac auctor lorem. " +
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio nec mi tempor dignissim.\n")
-                .getBytes(StandardCharsets.UTF_8));
-        ByteArrayInputStream inputStream2 = new ByteArrayInputStream("Мама мыла-мыла-мыла раму!".getBytes(StandardCharsets.UTF_8));
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)); // System.in
-
 
         bf.lines().forEach((String s) ->{
                     String[] strings = s.split("[\\p{Punct}\\s]+"); // "\\W+" -- не работает с руссичем
