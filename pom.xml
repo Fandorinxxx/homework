@@ -12,7 +12,75 @@
     <dependencies>
 
 
-        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+
+        <!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--  Обеспечивает "Fluent interface" при написании тестов -->
+        <dependency> <!--  AssertJ - улучшенная версия FestAssert -->
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.6.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Для создания объектов заглушек при тестировании -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.7.22</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- Для тестирования производительности -->
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.18</version>
+            <!-- <scope>test</scope>-->
+        </dependency>
+        <!-- Примеры использования См. в External Libraries
+             При запуске выбрать в меню (Use classpath or module) модуль (Название этого проекта)-->
+         <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-samples</artifactId>
+            <version>1.18</version>
+        </dependency>
+        <!-- - - - - - - - - - - - - - - - - - - -->
+
+
+        <!-- Для просмотра того, как лежат обеъкты в памяти-->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-samples</artifactId>
+            <version>0.8</version>
+        </dependency>
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+        <!--  Для работы с .class файлами (байткодом) -->
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>5.0.3</version>
+        </dependency>
+
+
+
+
+
+        <!--  -->
         <!-- for ru.alternation.Trash.Youtube.ParserHTML_1 -->
         <dependency>
             <groupId>org.jsoup</groupId>
@@ -21,8 +89,29 @@
         </dependency>
 
 
-    </dependencies>
+        <!--  -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>21.0</version>
+        </dependency>
 
+        <!-- Commons Lang, a package of Java utility classes for the classes that are in java.lang's
+             hierarchy, or are considered to be so standard as to justify existence in java.lang. -->
+        <!--<dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>-->
+
+        <!-- A collection of various utility classes to ease working with strings, files, command lines, XML and more. -->
+        <!-- <dependency>
+             <groupId>org.codehaus.plexus</groupId>
+             <artifactId>plexus-utils</artifactId>
+             <version>3.0.24</version>
+         </dependency>-->
+
+    </dependencies>
 
 
     <build>
@@ -30,21 +119,23 @@
 
         <plugins>
 
-            <!-- Плагин для автоматического анализа кода на предмет наличия "нехорошего кода". -->
-            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/ -->
+            <!-- Для проверки покрытия кода тестами -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.7</version>
-                <configuration>
-                    <targetJdk>1.8</targetJdk>
-                    <verbose>true</verbose>
-                </configuration>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.9</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <id>default-prepare-agent</id>
                         <goals>
-                            <goal>check</goal><!--  -->
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -62,16 +153,16 @@
             </plugin>
 
             <!-- https://maven.apache.org/plugins/maven-resources-plugin/project-summary.html -->
-           <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-resources-plugin</artifactId>
-               <version>3.0.2</version>
-               <configuration>
-                   <encoding>UTF-8</encoding>
-               </configuration>
-           </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
 
-           <!-- Allows the example to be run via 'mvn compile exec:java' -->
+            <!-- Allows the example to be run via 'mvn compile exec:java' -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -79,6 +170,74 @@
                 <configuration>
                     <mainClass>ru.alternation.Main</mainClass>
                     <includePluginDependencies>false</includePluginDependencies>
+                </configuration>
+                <executions>
+                    <!--<execution>
+                        <id>run-benchmarks</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <classpathScope>test</classpathScope>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openjdk.jmh.Main</argument>
+                                <argument>.*</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>-->
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>ru.alternation.Main</mainClass>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+
+            <!-- Плагин для автоматического анализа кода на предмет наличия "нехорошего кода". -->
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/ -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.7</version>
+                <configuration>
+                    <targetJdk>1.8</targetJdk>
+                    <verbose>true</verbose>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <!-- <goal>check</goal>  -->
+                            <goal>cpd</goal>
+                            <goal>pmd</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+           <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                    <generateReports>false</generateReports>
                 </configuration>
             </plugin>
 
@@ -90,6 +249,8 @@
 
     <!-- Apache Maven Shade Plugin -->
     <!-- https://maven.apache.org/plugins/maven-shade-plugin/index.html -->
+    <!-- This plugin provides the capability to package the artifact in an uber-jar, including its dependencies
+         and to shade - i.e. rename - the packages of some of the dependencies. -->
 
     <!--    -->
     <!--    -->
