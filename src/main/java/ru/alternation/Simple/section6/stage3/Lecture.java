@@ -10,6 +10,8 @@ import java.util.function.IntFunction;
 import java.util.function.ToIntFunction;
 
 /**
+ * TAGS
+ *
  * Consumer - потребитель, он получает на вход значение, что-то с ним делает, но ничего не возвращает.
  * Predicate - утверждение, получает на вход значение и возвращает истину/ложь в зависимости от значения.
  * Function - функция, думаю понятно как работает.

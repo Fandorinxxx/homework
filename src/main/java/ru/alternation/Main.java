@@ -1,10 +1,7 @@
 package ru.alternation;
 
 import java.io.IOException;
-import java.io.Reader;
-import java.io.StreamTokenizer;
-import java.io.StringReader;
-import java.util.BitSet;
+
 
 public class Main {
 
@@ -12,11 +9,13 @@ public class Main {
         System.out.println("Hello World!");
 
 
-        Reader reader = new StringReader("This is a test string for JCG Stream Tokenizer Example");
-        StreamTokenizer tokenizer = new StreamTokenizer(reader);
-        while(tokenizer.nextToken()!= StreamTokenizer.TT_EOF){
-            System.out.println(tokenizer.sval);
-        }
+
+
+//        Reader reader = new StringReader("This is a test string for JCG Stream Tokenizer Example");
+//        StreamTokenizer tokenizer = new StreamTokenizer(reader);
+//        while(tokenizer.nextToken()!= StreamTokenizer.TT_EOF){
+//            System.out.println(tokenizer.sval);
+//        }
 
 
 //        int i = -1024;
