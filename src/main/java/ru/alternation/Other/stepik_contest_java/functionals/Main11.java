@@ -39,20 +39,20 @@ public class Main11 {
                         .rangeClosed(l, r)
                         .reduce(1L, (acc, x) -> acc * x);
 
-        LongBinaryOperator operator2 =
-                (x, y) -> LongStream
-                        .rangeClosed(x, y)
-                        .reduce(1, x == y ?
-                                (left, right) -> right :    // ! only right
-                                (left, right) -> left * right);
-
-        // Another answer
-        LongBinaryOperator operator3 =
-                (x, y) -> LongStream
-                        .rangeClosed(x, y)
-                        .reduce(x == y ?
-                                (left, right) -> left :
-                                (left, right) -> left * right).getAsLong();
+//        LongBinaryOperator operator2 =
+//                (x, y) -> LongStream
+//                        .rangeClosed(x, y)
+//                        .reduce(1, x == y ?
+//                                (left, right) -> right :    // ! only right
+//                                (left, right) -> left * right);
+//
+//        // Another answer
+//        LongBinaryOperator operator3 =
+//                (x, y) -> LongStream
+//                        .rangeClosed(x, y)
+//                        .reduce(x == y ?
+//                                (left, right) -> left :
+//                                (left, right) -> left * right).getAsLong();
 
         // Tests
         System.err.println(operator.applyAsLong(0, 1)); // 0

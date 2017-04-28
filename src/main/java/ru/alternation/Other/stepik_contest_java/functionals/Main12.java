@@ -1,5 +1,16 @@
 package ru.alternation.Other.stepik_contest_java.functionals;
 
+import com.google.common.base.Function;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  2.12 Getting distinct strings
 
@@ -29,6 +40,19 @@ package ru.alternation.Other.stepik_contest_java.functionals;
 public class Main12 {
     public static void main(String[] args) {
 
+        UnaryOperator<List<String>> function = (List<String> list) ->
+                list.stream()
+                        .distinct()
+                        .collect(Collectors.toCollection(ArrayList::new));
+
+        Function<List<String>, List<String>> function2 = list -> {
+            Set<String> set = new HashSet<>(list);
+            return new ArrayList<>(set);
+        };
+
+
+        System.out.println(function.apply(Arrays.asList("java", "scala", "java","clojure", "clojure")));
+        System.out.println(function.apply(Arrays.asList("the", "three", "the", "three","the", "three", "an","an", "a")));
 
 
     }
