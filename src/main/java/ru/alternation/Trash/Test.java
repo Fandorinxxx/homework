@@ -1,23 +1,13 @@
 package ru.alternation.Trash;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-public class Test{
-
-
+public class Test {
     public static void main(String[] args) {
 
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        for (Integer i : list){
-            i+=2;
-        }
-        System.out.println(list);
 
-
+        Arrays.stream(new int[]{5,7}).min();
 
     }
 

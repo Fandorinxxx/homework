@@ -1,13 +1,21 @@
 package ru.alternation;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
-        System.out.println("Hello World!");
 
+
+
+
+
+
+
+         //Thread.sleep(5);
 
 
 
@@ -36,3 +44,4 @@ public class Main {
 
     }
 }
+

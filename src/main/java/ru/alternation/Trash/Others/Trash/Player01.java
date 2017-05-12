@@ -1,4 +1,4 @@
-package ru.alternation.Trash.Others;
+package ru.alternation.Trash.Others.Trash;
 
 
 import java.util.*;
