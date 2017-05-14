@@ -1,4 +1,4 @@
-package ru.alternation.Other.stepik_contest_java.questions;
+package ru.alternation.Other.stepik_contest_java.conrurrency;
 
 /**
  * 5.6 Get current thread
