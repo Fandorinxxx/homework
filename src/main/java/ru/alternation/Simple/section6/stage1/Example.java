@@ -20,7 +20,7 @@ public class Example<X> {
 //        new X();
 
         // Получение экземпляра Optional<x> через Optional.empty()
-        Optional<X> xOptional = Optional.empty();
+        Optional<X> xOptional = Optional.empty(); //Optional.<X>empty();
 
         // Проверка (obj instanceof X)
 //        if (obj instanceof X) {}
