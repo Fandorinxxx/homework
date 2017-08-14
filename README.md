@@ -1,5 +1,5 @@
-HomeWork
-========
+#HomeWork
+
 
 Различные наработки, написанные в процессе освоения Java. 
 
@@ -7,14 +7,15 @@ HomeWork
 
 - [Java. Базовый курс][stepik-basic]
 
-- [Java. Functional programming][stepik-functioal]
+- [Java. Functional programming][stepik-functional]
 
 А также много различных примеров.
 
 
 
+
 [stepik-basic]:      <https://stepik.org/course/187>
-[stepik-functioal]:  <https://stepik.org/course/1595/>
+[stepik-functional]: <https://stepik.org/course/1595/>
 [stepik-сontest]:    <https://stepik.org/course/2600/>
 [stepik-сontest-s]:  <https://stepik.org/course/2600/syllabus>
 [stepik-adaptive]:   <https://stepik.org/course/2403/>
