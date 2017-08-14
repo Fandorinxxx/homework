@@ -8,7 +8,7 @@
        <order_id>e94dc619-6172-4ffe-aae8-63112c551570</order>
        <desc>We'd like to buy an elephant</desc>
 
-1. First, a tag `<transaction>...</transaction> ` is added as border of the data (data is wrapped in the tag). The result:
+1. First, a tag `<transaction>...</transaction>` is added as border of the data (data is wrapped in the tag). The result:
 
     ```
     <transaction>
