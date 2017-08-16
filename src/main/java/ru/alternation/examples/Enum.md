@@ -38,19 +38,22 @@ enum Day {
 И если можно было наследоваться явно, без использования "магического синтаксиса", то выглядело бы это вот так:
 
 ```
-public class Test {
-   public static class Day extends Enum<Day>{ // Error: Classes cannot directly extend 'java.lang.Enum'
-       public Day(String name, int ordinal) {
-           super(name, ordinal);
-       }
-   }
-   public static void main(String[] args) {
-      Day SUNDAY = new Day("SUNDAY", 0);
-      Day MONDAY = new Day("MONDAY", 1);
-   }
+public final class Day extends Enum<Day> {  // Error: Classes cannot directly extend 'java.lang.Enum'
+    private Day(String name, int ordinal) {
+        super(name, ordinal);
+    }
+
+    public static final Day SUNDAY;
+    public static final Day MONDAY;
+
+    static {
+        SUNDAY = new Day("SUNDAY", 0);
+        MONDAY = new Day("MONDAY", 1);
+    }
 }
 ```
 
+Бонус: http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeParameters.html#FAQ106
 
 
 <!-- <old version>

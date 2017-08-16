@@ -1,70 +1,74 @@
 package ru.alternation.examples;
 
 
-/**
-    public abstract class Enum<E extends Enum<E>>
-        implements Comparable<E>, Serializable {...}
 
- Как я это понял (не факт, что верно):
 
- Enum реализует интерфейс Comparable<E>, где E является наследником Enum, притом такого, который реализует
- Comparable именно того же E.
+import java.io.Serializable;
+import java.io.IOException;
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
+import java.io.ObjectStreamException;
 
- Примером такого (наследника Enum) класса может быть Day:
-    enum Day {
-        THURSDAY, FRIDAY, SATURDAY, SUNDAY, MONDAY, TUESDAY, WEDNESDAY
+
+public abstract class Test<E extends Test<E>>
+        implements Comparable<E>, Serializable {
+
+    private final String name;
+    public final String name() {
+        return name;
     }
- И еще один пример перечисления:
-    enum Season { WINTER, SPRING, SUMMER, AUTUMN }
 
- И если теперь подставить в определение вместо E конкретный класс:
-
- Enum реализует интерфейс Comparable<Day>, где Day является наследником Enum, притом такого, который реализует именно
- Comparable<Day>, а не, например, Comparable<Season>.
-
-
- И если можно было наследоваться явно, без использования "магического синтаксиза", то выглядело бы это вот так:
-
- public class Test {
-    public static class Day extends Enum<Day>{ // Error: Classes cannot directly extend 'java.lang.Enum'
-        public Day(String name, int ordinal) {
-            super(name, ordinal);
-        }
+    private final int ordinal;
+    public final int ordinal() {
+        return ordinal;
     }
-    public static void main(String[] args) {
-       Day SUNDAY = new Day("MONDAY", 0);
-       Day MONDAY = new Day("MONDAY", 1);
+
+    protected Test(String name, int ordinal) {
+        this.name = name;
+        this.ordinal = ordinal;
     }
- }
+
+    public String toString() {
+        return name;
+    }
+
+    public final boolean equals(Object other) {
+        return this==other;
+    }
+
+    public final int hashCode() {
+        return super.hashCode();
+    }
+
+    protected final Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
+
+    public final int compareTo(E o) {
+        Test<?> other = (Test<?>)o;
+        Test<E> self = this;
+        if (self.getClass() != other.getClass() && // optimization
+                self.getDeclaringClass() != other.getDeclaringClass())
+            throw new ClassCastException();
+        return self.ordinal - other.ordinal;
+    }
 
 
+    @SuppressWarnings("unchecked")
+    public final Class<E> getDeclaringClass() {
+        Class<?> clazz = getClass();
+        Class<?> zuper = clazz.getSuperclass();
+        return (zuper == Test.class) ? (Class<E>)clazz : (Class<E>)zuper;
+    }
 
+    protected final void finalize() { }
 
- //Day – класс, отнаследуемый от абстрактного класса Enum, причем такого, который реализует
+    private void readObject(ObjectInputStream in) throws IOException,
+            ClassNotFoundException {
+        throw new InvalidObjectException("can't deserialize enum");
+    }
 
-
-
-  */
-
-
-public class Test {
-//
-//    public static class Day extends Enum<Day>{
-//        public Day(String name, int ordinal) {
-//            super(name, ordinal);
-//        }
-//    }
-//
-//    public static void main(String[] args) {
-//        Day SUNDAY = new Day("MONDAY", 0);
-//        Day MONDAY = new Day("MONDAY", 1);
-//    }
-//
-////    public enum Day {
-////        SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
-////        THURSDAY, FRIDAY, SATURDAY
-////    }
-
-
-
+    private void readObjectNoData() throws ObjectStreamException {
+        throw new InvalidObjectException("can't deserialize enum");
+    }
 }
