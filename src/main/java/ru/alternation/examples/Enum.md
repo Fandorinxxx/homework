@@ -22,8 +22,17 @@ enum Day {
 
 И если теперь подставить в определение вместо `E` конкретный класс:
 
-Enum реализует интерфейс `Comparable<Day>`, где `Day` является наследником `Enum`, притом такого, который реализует именно
-`Comparable<Day>`, а не, например, `Comparable<Season>`.
+<new version>
+Класс `Day` наследует такой `Enum`, который реализует интерфейс `Comparable<Day>`, где `Day` является наследником `Enum`,
+притом такого, который реализует именно `Comparable<Day>`, а не, например, `Comparable<Season>`.
+
+Т.е.
+- класс наследник `E` должен наследоваться от `Enum`, такого, что
+- `Enum` должен уметь `compareTo(E obj)`
+
+И еще раз рекурсивно: `E` является наследником `Enum`, который умеет `compareTo(E obj)`, 
+где `E` является наследником `Enum`, который умеет `compareTo(E obj)`, 
+где `E` является наследником `Enum`, который умеет `compareTo(E obj)`, ну и так далее.
 
 
 И если можно было наследоваться явно, без использования "магического синтаксиса", то выглядело бы это вот так:
@@ -36,8 +45,15 @@ public class Test {
        }
    }
    public static void main(String[] args) {
-      Day SUNDAY = new Day("MONDAY", 0);
+      Day SUNDAY = new Day("SUNDAY", 0);
       Day MONDAY = new Day("MONDAY", 1);
    }
 }
 ```
+
+
+
+<!-- <old version>
+Enum реализует интерфейс `Comparable<Day>`, где `Day` является наследником `Enum`, притом такого, который реализует именно
+`Comparable<Day>`, а не, например, `Comparable<Season>`. 
+-->
