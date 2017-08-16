@@ -26,7 +26,8 @@
        <sum>100000</sum>
        <order_id>e94dc619-6172-4ffe-aae8-63112c551570</order>
        <desc>We'd like to buy an elephant</desc>
-    </transaction><digest>CZVMYTgc3iiOdJjFP+6dhQ==</digest>
+    </transaction>
+    <digest>CZVMYTgc3iiOdJjFP+6dhQ==</digest>
     ```
 
 3. After that, the data is wrapped in a tag `<request>...</request>` as shown below. The request is completed.

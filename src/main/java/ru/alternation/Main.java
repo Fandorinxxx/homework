@@ -2,7 +2,10 @@ package ru.alternation;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
@@ -28,9 +31,26 @@ public class Main {
     }
     static void Q(){}
 
+
+
+
+
     public static void main(String[] args) throws IOException {
 
+
+        List<Number> numbers = Collections.<Number>unmodifiableList(new ArrayList<Integer>());
+
+
+        //Integer[] zz = new Integer[]{};
+
+
+
+
         new Z().apply();
+        S s = new Z();
+        s.apply();
+        A a = new Z();
+        a.apply();
 
 
 
