@@ -3,6 +3,8 @@ package ru.alternation.stepik.contest_java.generics;
 import java.io.Serializable;
 
 /**
+ # 3.17 Type Bounds: Apples and Oranges
+
  There are different points of view on "Apples and Oranges" problem. You are provided with implementation that allows
  comparison of apples with oranges, the task is to redesign type system and implementation in a classical way that
  prohibits comparison of Oranges and Apples.
@@ -38,7 +40,9 @@ public class Main17 {
         public int compareTo(T o) {
             // casting 'o' to 'Fruit<?>' is redundant -- но почему в Enum оно используется?
             // Видимо, оно там не нужно, но IDEA не палит.
-            Fruit<?> other = (Fruit<?>)o;  // for other.weigth or
+            //Fruit<?> other = (Fruit<?>)o;
+
+            Fruit<?> other = o;              // for other.weigth or
             return Integer.compare(this.weight, other.weight);  // 'weigth' has private access in 'ru.alternation.stepik.contest_java.generics.Main17.Fruit'
         }
 
