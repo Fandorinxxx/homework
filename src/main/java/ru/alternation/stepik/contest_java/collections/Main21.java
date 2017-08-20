@@ -1,6 +1,7 @@
 package ru.alternation.stepik.contest_java.collections;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Queue;
 
 /**
@@ -23,6 +24,9 @@ public class Main21 {
             add(1);
             add(7);
         }};
+        //Queue<Integer> queue = new ArrayDeque<>(Arrays.asList(2, 0, 1, 7));
+        //                       Stream.of(2, 0, 1, 7).collect(Collectors.toCollection(ArrayDeque::new));
+
 
         System.out.println(queue);
     }
