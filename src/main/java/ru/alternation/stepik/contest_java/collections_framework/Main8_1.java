@@ -24,7 +24,7 @@ import java.util.OptionalInt;
  662
 
  */
-public class Main1_1 {
+public class Main8_1 {
     public static Integer maxElem(List<Integer> list){
         return Collections.max(list);
     }

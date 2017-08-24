@@ -1,5 +1,6 @@
 package ru.alternation.stepik.contest_java.collections_framework;
 
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -27,15 +28,23 @@ import java.util.List;
  goodmorning
 
  */
-public class Main1_2 {
+public class Main8_2 {
+
+
     static List<String> changeList(List<String> list){
 
+        String longerString = Collections.max(list, Comparator.comparingInt(String::length));
+        list.replaceAll(s -> longerString);
+        return list;
+    }
+
+
+    static List<String> changeList0(List<String> list){
+
         String longerString = list.stream().sorted(Comparator.comparing(String::length).reversed()).findFirst().get();
-        int size = list.size();
-        //list.clear(); // Exception
 
         Collections.fill(list, longerString);
-//        for (int i = 0; i < size; i++) {
+//        for (int i = 0; i < list.size(); i++) {
 //            list.set(i, longerString);
 //        }
         return list;
