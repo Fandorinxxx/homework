@@ -13,7 +13,7 @@ import java.util.Collection;
 public class Example {
     public static void main(String[] args) {
 
-        // TAGS: Дженерики generics
+        // TAGS: Дженерики Generics
 
         Collection<?> collection = new ArrayList<>(); // <? extends Object> // т.е. тут может быть любой подтип Object, и не известно какой. поэтому низя присваивать
         Object object = new Object();
