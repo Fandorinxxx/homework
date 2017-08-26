@@ -1,13 +1,11 @@
 package ru.alternation.stepik.basic.section6.stage2;
 
-import ru.alternation.stepik.basic.section6.stage1.Hack;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
 /**
-@see ru.alternation.examples.Others.Trash.Test06.Main
+@see ru.alternation.examples.others.trash.test06.Main
 @see ru.alternation.stepik.basic.section6.stage1.Hack
 @see ru.alternation.stepik.basic.section6.stage1.Example
 @see ru.alternation.stepik.basic.section6.stage1.step12.Pair
@@ -15,7 +13,7 @@ import java.util.Collection;
 public class Example {
     public static void main(String[] args) {
 
-        // TAGS: Дженерики Generics
+        // TAGS: Дженерики generics
 
         Collection<?> collection = new ArrayList<>(); // <? extends Object> // т.е. тут может быть любой подтип Object, и не известно какой. поэтому низя присваивать
         Object object = new Object();

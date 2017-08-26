@@ -86,7 +86,7 @@
 
 
         <!--  -->
-        <!-- for ru.alternation.examples.Youtube.ParserHTML_1 -->
+        <!-- for ru.alternation.examples.youtube.parser_html_11 -->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>

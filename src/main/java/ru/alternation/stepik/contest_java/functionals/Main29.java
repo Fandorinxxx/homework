@@ -31,9 +31,12 @@ public class Main29 {
 
         Collectors.reducing(1, (Integer i) -> i*i, (Integer acc, Integer value) -> acc * value);
 
-        int i = Stream.of(0, 1, 2, 3)
+
+        int i = Stream.of(1, 2)
                 .collect(Collectors.reducing(1, integer -> integer * integer, (integer, integer2) -> integer * integer2));
         System.out.println(i);
+
+        //int i = Stream.of(0, 1, 2, 3).map(integer -> integer * integer).reduce(1, (integer, integer2) -> integer * integer2);
     }
 }
 

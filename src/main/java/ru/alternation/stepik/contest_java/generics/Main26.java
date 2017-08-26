@@ -9,7 +9,7 @@ import java.util.Arrays;
 
  https://en.wikipedia.org/wiki/Photocopier
  Remember all these good old photocopiers? Let's try to implement something similar with time-proven Java arrays
- in dangerous mix with up to date Java Generics.
+ in dangerous mix with up to date Java generics.
 
  Your task is to create Multiplicator that receives Folders with anything that can be copied
  (i.e. implementing Copy interface) any creates array of Folders with copies of the original Folder content.

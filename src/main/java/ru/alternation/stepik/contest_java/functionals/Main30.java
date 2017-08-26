@@ -31,8 +31,6 @@ import java.util.stream.Collectors;
  */
 public class Main30 {
 
-
-
     public static void main(String[] args) {
 
         Collectors.partitioningBy((String s) -> s.equals(new StringBuilder(s).reverse().toString()))
