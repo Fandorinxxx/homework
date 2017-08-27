@@ -6,17 +6,9 @@ package  ru.alternation.stepik.contest_java.questions.stepik.module02;
  *  Which imports have to be done for compiling without errors?
  */
 
-import static ru.alternation.stepik.contest_java.questions.stepik.module01.A.*;
+//import static ru.alternation.stepik.contest_java.questions.stepik.module01.A.*;
+import static ru.alternation.stepik.contest_java.questions.stepik.module01.A.STRING_CONSTANT;
 import ru.alternation.stepik.contest_java.questions.stepik.module01.A;
-
-//import static A.STRING_CONSTANT;
-//import ru.alternation.stepik.contest_java.questions.stepik.module01.*;
-
-
-
-//import static ru.alternation.stepik.contest_java.questions.stepik.module01.*;
-//import A.STRING_CONSTANT;
-//import A.*;
 
 
 public class B {

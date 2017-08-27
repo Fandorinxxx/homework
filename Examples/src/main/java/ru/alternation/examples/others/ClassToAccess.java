@@ -10,7 +10,7 @@ public class ClassToAccess {
 }
 
 
-//import ClassToAccess;
+//import ru.alternation.examples.others.ClassToAccess;
 //
 //public class Test{
 //

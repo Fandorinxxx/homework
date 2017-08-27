@@ -6,12 +6,12 @@ package ru.alternation.stepik.basic.section4.stage3.step9.subpackage;
 public class MailPackage extends AbstractSendable {
     private final ru.alternation.stepik.basic.section4.stage3.step9.subpackage.Package content;
 
-    public MailPackage(String from, String to, ru.alternation.stepik.basic.section4.stage3.step9.subpackage.Package content) {
+    public MailPackage(String from, String to, Package content) {
         super(from, to);
         this.content = content;
     }
 
-    public ru.alternation.stepik.basic.section4.stage3.step9.subpackage.Package getContent() {
+    public Package getContent() {
         return content;
     }
 

@@ -19,10 +19,10 @@ public class Thief implements MailService{
         if (!(mail instanceof MailPackage)) {  // чтобы не подсвечивалось, что код сдублирован
             return mail;
         }
-        ru.alternation.stepik.basic.section4.stage3.step9.subpackage.Package aPackage = ((MailPackage) mail).getContent();
+        Package aPackage = ((MailPackage) mail).getContent();
         if (aPackage.getPrice() >= minPrice){
             totalStolen+=aPackage.getPrice();
-            return new MailPackage(mail.getFrom(), mail.getTo(), new ru.alternation.stepik.basic.section4.stage3.step9.subpackage.Package("stones instead of " + aPackage.getContent(), 0));
+            return new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of " + aPackage.getContent(), 0));
         }
         return mail;
     }

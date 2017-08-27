@@ -5,9 +5,9 @@
   <date>2017-04-07T18:21:07</date>
   <millis>1491578467661</millis>
   <sequence>0</sequence>
-  <logger>LogApp</logger>
+  <logger>ru.alternation.examples.jul.example01.LogApp</logger>
   <level>INFO</level>
-  <class>LogApp</class>
+  <class>ru.alternation.examples.jul.example01.LogApp</class>
   <method>main</method>
   <thread>1</thread>
   <message>Запись лога с уровнем INFO (информационная)</message>
@@ -16,9 +16,9 @@
   <date>2017-04-07T18:21:07</date>
   <millis>1491578467692</millis>
   <sequence>1</sequence>
-  <logger>LogApp</logger>
+  <logger>ru.alternation.examples.jul.example01.LogApp</logger>
   <level>WARNING</level>
-  <class>LogApp</class>
+  <class>ru.alternation.examples.jul.example01.LogApp</class>
   <method>main</method>
   <thread>1</thread>
   <message>Запись лога с уровнем WARNING (Предупреждение)</message>
@@ -27,9 +27,9 @@
   <date>2017-04-07T18:21:07</date>
   <millis>1491578467707</millis>
   <sequence>2</sequence>
-  <logger>LogApp</logger>
+  <logger>ru.alternation.examples.jul.example01.LogApp</logger>
   <level>SEVERE</level>
-  <class>LogApp</class>
+  <class>ru.alternation.examples.jul.example01.LogApp</class>
   <method>main</method>
   <thread>1</thread>
   <message>Запись лога с уровнем SEVERE (серъёзная ошибка)</message>
