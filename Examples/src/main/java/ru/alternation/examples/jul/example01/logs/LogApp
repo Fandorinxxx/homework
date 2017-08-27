@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-07T18:21:07</date>
+  <millis>1491578467661</millis>
+  <sequence>0</sequence>
+  <logger>LogApp</logger>
+  <level>INFO</level>
+  <class>LogApp</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Запись лога с уровнем INFO (информационная)</message>
+</record>
+<record>
+  <date>2017-04-07T18:21:07</date>
+  <millis>1491578467692</millis>
+  <sequence>1</sequence>
+  <logger>LogApp</logger>
+  <level>WARNING</level>
+  <class>LogApp</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Запись лога с уровнем WARNING (Предупреждение)</message>
+</record>
+<record>
+  <date>2017-04-07T18:21:07</date>
+  <millis>1491578467707</millis>
+  <sequence>2</sequence>
+  <logger>LogApp</logger>
+  <level>SEVERE</level>
+  <class>LogApp</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Запись лога с уровнем SEVERE (серъёзная ошибка)</message>
+</record>
+</log>

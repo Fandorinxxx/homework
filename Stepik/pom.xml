@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.alternation</groupId>
-    <artifactId>homework</artifactId>
+    <artifactId>Stepik</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -38,89 +38,6 @@
         </dependency>
 
 
-        <!-- Для тестирования производительности -->
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-            <version>1.18</version>
-            <!-- <scope>test</scope>-->
-        </dependency>
-        <!-- Примеры использования См. в External Libraries
-             При запуске выбрать в меню (Use classpath or module) модуль (Название этого проекта)-->
-         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-samples</artifactId>
-            <version>1.18</version>
-        </dependency>
-        <!-- - - - - - - - - - - - - - - - - - - -->
-
-
-        <!-- Для просмотра того, как лежат обеъкты в памяти-->
-        <dependency>
-            <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-core</artifactId>
-            <version>0.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-samples</artifactId>
-            <version>0.8</version>
-        </dependency>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
-
-        <!--  Для работы с .class файлами (байткодом) -->
-        <dependency>
-            <groupId>org.ow2.asm</groupId>
-            <artifactId>asm</artifactId>
-            <version>5.0.3</version>
-        </dependency>
-
-
-        <!-- NIO client server framework -->
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.9.Final</version>
-        </dependency>
-
-
-        <!--  -->
-        <!-- for ru.alternation.examples.youtube.parser_html_11 -->
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.10.2</version>
-        </dependency>
-
-
-        <!--  -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>21.0</version>
-        </dependency>
-
-        <!-- Commons Lang, a package of Java utility classes for the classes that are in java.lang's
-             hierarchy, or are considered to be so standard as to justify existence in java.lang. -->
-        <!--<dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>-->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.5</version>
-        </dependency>
-
-
-        <!-- A collection of various utility classes to ease working with strings, files, command lines, XML and more. -->
-        <!-- <dependency>
-             <groupId>org.codehaus.plexus</groupId>
-             <artifactId>plexus-utils</artifactId>
-             <version>3.0.24</version>
-         </dependency>-->
 
     </dependencies>
 
@@ -241,7 +158,7 @@
                 </executions>
             </plugin>
 
-           <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>2.1</version>
@@ -252,19 +169,9 @@
                 </configuration>
             </plugin>
 
+
+
         </plugins>
     </build>
-
-
-    <!-- Interesting plugins:      -->
-
-    <!-- Apache Maven Shade Plugin -->
-    <!-- https://maven.apache.org/plugins/maven-shade-plugin/index.html -->
-    <!-- This plugin provides the capability to package the artifact in an uber-jar, including its dependencies
-         and to shade - i.e. rename - the packages of some of the dependencies. -->
-
-    <!--    -->
-    <!--    -->
-
 </project>
 

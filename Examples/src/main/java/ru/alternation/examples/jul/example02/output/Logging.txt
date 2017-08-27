@@ -1,0 +1,8 @@
+апр 07, 2017 7:07:24 PM UseLogger doSomeThingAndLog
+SEVERE: Info Log
+апр 07, 2017 7:07:24 PM UseLogger doSomeThingAndLog
+SEVERE: Info Log
+апр 07, 2017 7:07:24 PM UseLogger doSomeThingAndLog
+WARNING: Info Log
+апр 07, 2017 7:07:24 PM UseLogger doSomeThingAndLog
+INFO: Info Log

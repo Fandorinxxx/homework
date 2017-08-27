@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.alternation</groupId>
-    <artifactId>homework</artifactId>
+    <artifactId>csc</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -47,7 +47,7 @@
         </dependency>
         <!-- Примеры использования См. в External Libraries
              При запуске выбрать в меню (Use classpath or module) модуль (Название этого проекта)-->
-         <dependency>
+        <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-samples</artifactId>
             <version>1.18</version>
@@ -82,15 +82,6 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.9.Final</version>
-        </dependency>
-
-
-        <!--  -->
-        <!-- for ru.alternation.examples.youtube.parser_html_11 -->
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.10.2</version>
         </dependency>
 
 
@@ -241,7 +232,7 @@
                 </executions>
             </plugin>
 
-           <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>2.1</version>
@@ -253,18 +244,6 @@
             </plugin>
 
         </plugins>
-    </build>
-
-
-    <!-- Interesting plugins:      -->
-
-    <!-- Apache Maven Shade Plugin -->
-    <!-- https://maven.apache.org/plugins/maven-shade-plugin/index.html -->
-    <!-- This plugin provides the capability to package the artifact in an uber-jar, including its dependencies
-         and to shade - i.e. rename - the packages of some of the dependencies. -->
-
-    <!--    -->
-    <!--    -->
-
+    </build> 
 </project>
 
