@@ -20,6 +20,7 @@ public class MainServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        // формируем вручную содержимое отдаваемой html страницы
 //        PrintWriter out = resp.getWriter();
 //        out.print("<h1>Hello Servlet</h1>");
 //        out.close();

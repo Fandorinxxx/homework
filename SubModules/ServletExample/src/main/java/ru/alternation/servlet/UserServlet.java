@@ -69,7 +69,7 @@ public class UserServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 
-		if (name.isPresent() && name.get().length() > 0){
+		if (name.isPresent() && name.get().length() > 0) {
 			if (!users.containsValue(name.get())) {
 				addUser(name.get());
 				out.println("<h3>Создан user " + name.get() + " c id=" + counter.get() + "</h3>");

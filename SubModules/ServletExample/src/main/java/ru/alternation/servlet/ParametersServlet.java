@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns="/ParametersServlet", loadOnStartup=0)
+@WebServlet(urlPatterns = "/ParametersServlet", loadOnStartup = 0)
 public class ParametersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
+
 	@Override
 	public void init() throws ServletException {
 		super.init();
@@ -34,7 +34,7 @@ public class ParametersServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			context.setAttribute("user", user);
 		}
-//		session.setMaxInactiveInterval(5);
+//		session.setMaxInactiveInterval(5); // установить время хранения данных сессии
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("Request parameter: " + user + "<br>");
