@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * https://www.youtube.com/playlist?list=PLwcDaxeEINad0vuk7vVxlWLrVI-Y5UK3H
  * https://cloud.mail.ru/public/JAji/ETwyAdNam
  *
- * + Пофиксин NPE добавления Optional'ов
+ * + Пофиксин NPE добавлением Optional'ов
  */
 
 @WebServlet(urlPatterns = "/FirstServlet", description = "Моё описание сервлета", displayName = "FirstServletDisplayName")
