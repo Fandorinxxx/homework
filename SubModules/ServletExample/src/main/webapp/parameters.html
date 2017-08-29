@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
 
-	<form method="GET" action="ParametersServlet">
-		Пользователь:<input type="text" name="user">
-		<input type="submit" value="Отправить">
-	</form>
-	<div>
-		<br>
-		<a href="/index.html">Main Page</a>
-	</div>
+<body>
+  <p>Введите имя пользователя. Оно сохранится для текущих сессии и контекста.</p>
+  <form method="GET" action="ParametersServlet">
+    Пользователь:<input type="text" name="user">
+    <input type="submit" value="Отправить">
+  </form>
+  <br>
+  <p><a href="/ParametersServlet">Сервлет</a></p>
+  <br>
+  <div>
+    <hr>
+    <a href="/index.html">Main Page</a>
+  </div>
 </body>
 </html>

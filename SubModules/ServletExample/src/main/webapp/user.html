@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Получить пользователя</title>
+  <meta charset="UTF-8">
+  <title>Получить пользователя</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-	<p style="font-style: italic">Метод <b>get</b></p>
-	<p style="font-style: italic"><a href="/UserServlet">Обработчик</a></p>
+  <p style="font-style: italic">Метод <b>get</b></p>
+  <p style="font-style: italic"><a href="/UserServlet">Обработчик</a></p>
 
-	<p><b>Введите число (id пользователя)</b></p>
-	<form method="get" action="UserServlet">
-		Пользователь: <input type="text" name="id">
-		<input type="submit" value="Отправить">
-	</form>
-	<br>
+  <p><b>Введите число (id пользователя)</b></p>
+  <form method="get" action="UserServlet">
+    Пользователь: <input type="text" name="id">
+    <input type="submit" value="Отправить">
+  </form>
+  <br>
 
-	<a href="http://localhost:8080/edit.html">Добавить нового пользователя</a>
-	<div>
-		<br>
-		<a href="/index.html">Main Page</a>
-	</div>
+  <a href="http://localhost:8080/edit.html">Добавить нового пользователя</a>
+  <br>
+  <br>
+  <div>
+    <hr>
+    <a href="/index.html">Main Page</a>
+  </div>
 </body>
 </html>

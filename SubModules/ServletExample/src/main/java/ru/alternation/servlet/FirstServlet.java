@@ -24,10 +24,11 @@ import javax.servlet.http.HttpServletResponse;
 public class FirstServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private String mainPageLink = "\t<div>\n" +
-			"\t\t<br>\n" +
-			"\t\t<a href=\"/index.html\">Main Page</a>\n" +
-			"\t</div>";
+	private String mainPageLink = "  <br>\n" +
+			"  <div>\n" +
+			"    <hr>\n" +
+			"    <a href=\"/index.html\">Main Page</a>\n" +
+			"  </div>";
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

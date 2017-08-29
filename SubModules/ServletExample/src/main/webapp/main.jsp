@@ -8,13 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Alternation.ru</title>
+  <title>Alternation.ru</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-    <h1>Hello  ${name}!</h1>
-    <div>
-        <br>
-        <a href="/index.html">Main Page</a>
-    </div>
+  <h1>Hello ${name}!</h1>
+  <br>
+  <div>
+    <hr>
+    <a href="/index.html">Main Page</a>
+  </div>
 </body>
 </html>

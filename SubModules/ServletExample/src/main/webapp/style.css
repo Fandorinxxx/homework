@@ -1,0 +1,21 @@
+body {
+  background-color: floralwhite;
+  font-size: 20px;
+}
+
+.content div {
+  padding: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: firebrick;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.italic {
+  font-style: italic;
+}
