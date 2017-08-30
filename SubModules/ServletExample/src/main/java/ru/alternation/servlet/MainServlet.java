@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  * http://devcolibri.com/4284
  */
 
-//@WebServlet("/s") // сделал в помощью web.xml
+//@WebServlet("/s") // сделал с помощью web.xml
 public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

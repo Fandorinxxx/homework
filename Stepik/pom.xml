@@ -5,10 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.alternation</groupId>
-    <artifactId>Stepik</artifactId>
+    <artifactId>stepik</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
+
+    
     <dependencies>
 
 

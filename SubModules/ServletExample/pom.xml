@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.alternation</groupId>
-    <artifactId>ServletExample</artifactId>
+    <artifactId>servlet-example</artifactId>
     <version>0.01-SNAPSHOT</version>
     <packaging>war</packaging>
 
