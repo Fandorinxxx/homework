@@ -47,7 +47,6 @@ public class Main {
             }
             resultSet.close();
 
-
 //            statement.addBatch("INSERT INTO animals(name, descr) VALUES ('name1', 'desc1');");
 //            statement.addBatch("INSERT INTO animals(name, descr) VALUES ('name2', 'desc2');");
 //            statement.addBatch("INSERT INTO animals(name, descr) VALUES ('name3', 'desc3');");
@@ -56,12 +55,9 @@ public class Main {
 
             //System.out.println(statement.isClosed());
 
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
 
     }
 
