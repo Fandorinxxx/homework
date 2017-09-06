@@ -8,9 +8,9 @@
     <artifactId>homework</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging> <!-- http://java-online.ru/maven-inheritance.xhtml -->
-     <!-- Для наследования зависимостей использовать тэг <parent> в дочерних pom'ах. См. модуль Examples.  -->
+     <!-- Для наследования зависимостей использовать тэг <parent> в дочерних pom'ах. См. модуль Examples. -->
      <!-- Пока что я не использую эту возможность, чтобы в одном месте сконцентрировать зависимости для удобства
-     просмотра их в будущем. Проект-то учебный.  -->
+     просмотра их в будущем. Проект-то учебный. -->
 
     <name>HomeWork</name>
     <url>https://github.com/AlternatiOne/HomeWork</url>
@@ -248,7 +248,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.7</version>
                 <configuration>
-                    <targetJdk>1.8</targetJdk>
+                    <targetJdk>${maven.compiler.target}</targetJdk>
                     <verbose>true</verbose>
                     <linkXRef>false</linkXRef>
                 </configuration>
