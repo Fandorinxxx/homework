@@ -11,7 +11,15 @@ import java.io.PrintWriter;
 
 
 /**
+ * http://devcolibri.com/как-создать-servlet-полное-руководство/
+ *
+ * Деплой на Tomcat:
+ * http://devcolibri.com/intellij-idea-деплой-на-tomcat/
+ * https://tomcat.apache.org/
+ *
+ * Архивные URL. (Больше не работают)
  * http://devcolibri.com/4284
+ * http://devcolibri.com/4249
  */
 
 //@WebServlet("/s") // сделал с помощью web.xml
@@ -30,12 +38,5 @@ public class MainServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/main.jsp");
         dispatcher.forward(req, resp);
 //      req.getRequestDispatcher("main.jsp").forward(req, resp); // то же самое, одной строкой
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-        super.doPost(req, resp);
     }
 }

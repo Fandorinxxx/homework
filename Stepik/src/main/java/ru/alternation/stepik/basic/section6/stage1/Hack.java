@@ -42,19 +42,14 @@ Optional<?> дает Optional, из которого (например, мето
 public class Hack {
     public static void main(String[] args) {
         throwAsUnchecked(new IOException());
-        //genericThrow(new IOException()); // можно и просто, так
-
-
-        Number[] numbers = new Integer[3];
-        numbers[2]=new BigDecimal("");
+        //genericThrow(new IOException()); // можно и просто, так – throws не требуется все равно
     }
 
     private static void throwAsUnchecked(Exception e) {
-        Hack.<RuntimeException>genericThrow(e);
+        Hack.<RuntimeException>genericThrow(e); // можно и без <>
     }
 
-    private static <T extends Throwable>
-    void genericThrow(Exception e) throws T {
+    private static <T extends Throwable> void genericThrow(Exception e) throws T {
         throw (T) e;
     }
 
@@ -63,16 +58,24 @@ public class Hack {
      * Пример, где нужно приведение дженерика
      */
     void also() {
-        Optional<CharSequence> optionalCharSequence = Optional.<CharSequence>ofNullable("baz"); // тут и без можно
+        Optional<CharSequence> optionalCharSequence = Optional.<CharSequence>ofNullable("baz"); // тут можно и без
 
         Comparator<Map.Entry<String, Integer>> c =
                 Comparator.<Map.Entry<String, Integer>>comparingInt(Map.Entry::getValue)
                         .thenComparing(Map.Entry::getKey); // нужно
+//         иначе
+//        Error:(65, 41) java: incompatible types: cannot infer type-variable(s) T
+//                (argument mismatch; invalid method reference
+//        method getValue in interface java.util.Map.Entry<K,V> cannot be applied to given types
+//        required: no arguments
+//        found: java.lang.Object
+//        reason: actual and formal argument lists differ in length)
+//
+//        Error:(65, 45) java: invalid method reference
+//        non-static method getValue() cannot be referenced from a static context
+//
+//        Error:(66, 43) java: invalid method reference
+//        non-static method getKey() cannot be referenced from a static context
 
-    }
-
-    void also2() {
-        Number[] numbers = new Integer[10];
-        numbers[0] = new BigDecimal("34"); // java.lang.ArrayStoreException
     }
 }
